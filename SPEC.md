@@ -96,7 +96,7 @@ KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-
   **NOT** #17, **NOT** product dual-gate KEEP, **NOT** `reference_twin`
   sync baseline.
 - **#17 ship-queue** still waits honest dual-gate KEEP after new HOLDOUT
-  (HT-1015/1016 path; fixture harden v2 digest `135edb5d…`).
+  (HT-1015/1016 path; fixture harden v2 digest `2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c` (HT-1018 / asml-bench PR #34)).
 - **`reference_twin`:** untouched / weights frozen until honest dual-gate
   KEEP + Repro. *(HT-1011/1012 are FEL-02 — not this product.)*
 

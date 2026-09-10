@@ -31,7 +31,7 @@ Unset → bundled `reference_twin` (SEED baseline). Mid-process env changes need
 - [x] M0 lab freeze (#14)
 - [x] M1 champion importable module (#15) — merged
 - [ ] Honest dual-gate KEEP → Repro → ship-queue (#17) — **still waiting**
-  (HT-1015/1016 path after new HOLDOUT; fixture harden v2 digest `135edb5d…`)
+  (HT-1015/1016 path after new HOLDOUT; fixture harden v2 digest `2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c` (HT-1018 / asml-bench PR #34))
 
 **Ticket status (not product KEEP):**
 
