@@ -83,17 +83,21 @@ Uncertainty is a documented toy envelope (card confidence + metric floors) —
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | [x] done |
 | M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | [x] **merged** |
-| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP (HT-1013/1014) | [x] candidate |
-| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | [ ] **awaiting Repro** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | [ ] HT-1013 VOID; need honest dual-gate |
+| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | [ ] **awaits honest dual-gate KEEP** |
 
 KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) (dual SEED) is closed.
 
 ### SEED / KEEP
 
 - SEED: HT-1007 / HT-1008 @ `holdout_nrmse ≈ 0.6162`
-- Dual-gate KEEP candidate: HT-1013 (grok) + HT-1014 (mock-mistral)
-  — not HT-1011/1012 (those are FEL-02)
-- Bundled `reference_twin` remains SEED coeffs until Repro clean-tree confirms HT-1014
+- **HT-1013: VOID** — oracle / `gen_fixtures.truth` coefficient clone; **not** product KEEP
+- **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only; **NOT** #17,
+  **NOT** product dual-gate KEEP, **NOT** `reference_twin` sync baseline
+- **#17 ship-queue** still waits honest dual-gate KEEP after new HOLDOUT
+  (HT-1015/1016 path; fixture harden v2 digest `135edb5d…`)
+- **`reference_twin`:** untouched / weights frozen until honest dual-gate KEEP + Repro
+  (not HT-1011/1012 — those are FEL-02)
 
 ## Provider / dual-island
 
@@ -110,7 +114,8 @@ Research-facing demos require **dual-island**. Never invoke lasercode from this 
 
 - [x] M0 lab freeze (#14)
 - [x] M1 champion importable module (#15) — merged
-- [x] Dual-gate KEEP candidate HT-1013/1014 (#30)
-- [ ] KEEP → Repro → ship-queue (#17) — awaiting Repro
+- [ ] Honest dual-gate KEEP (#30) — HT-1013 VOID; HT-1015/1016 path after new HOLDOUT
+- [ ] KEEP → Repro → ship-queue (#17) — awaits honest dual-gate KEEP (not HT-1014)
 
 GO-LIVE. Hill-climbs only via Foreman stamped tickets.
+`reference_twin` weights frozen until dual-gate + Repro.

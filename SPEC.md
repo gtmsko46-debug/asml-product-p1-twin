@@ -81,8 +81,8 @@ Foreman owns lasercode-session routing. Do not call lasercode from this reposito
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | **done** |
 | M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | **merged** |
-| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP (HT-1013/1014) | candidate filed |
-| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | **awaiting Repro** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | HT-1013 VOID; need honest dual-gate |
+| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | **awaits honest dual-gate KEEP** |
 
 KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) was dual SEED and is closed.
 
@@ -90,9 +90,15 @@ KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-
 
 - **SEED landed:** HT-1007 (grok) + HT-1008 (mock-mistral) @
   `holdout_nrmse ≈ 0.6162` on the SEED baseline twin.
-- **Dual-gate KEEP candidate:** HT-1013 (grok) + HT-1014 (mock-mistral).
-  Product `reference_twin` stays on SEED coeffs until Repro clean-tree
-  confirms HT-1014. *(HT-1011/1012 are FEL-02 — not this product.)*
+- **HT-1013: VOID** — oracle / `gen_fixtures.truth` coefficient clone;
+  **not** product KEEP.
+- **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only;
+  **NOT** #17, **NOT** product dual-gate KEEP, **NOT** `reference_twin`
+  sync baseline.
+- **#17 ship-queue** still waits honest dual-gate KEEP after new HOLDOUT
+  (HT-1015/1016 path; fixture harden v2 digest `135edb5d…`).
+- **`reference_twin`:** untouched / weights frozen until honest dual-gate
+  KEEP + Repro. *(HT-1011/1012 are FEL-02 — not this product.)*
 
 ## Uncertainty model (synthetic)
 

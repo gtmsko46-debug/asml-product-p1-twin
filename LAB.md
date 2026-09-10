@@ -30,8 +30,15 @@ Unset → bundled `reference_twin` (SEED baseline). Mid-process env changes need
 
 - [x] M0 lab freeze (#14)
 - [x] M1 champion importable module (#15) — merged
-- [x] Dual-gate KEEP candidate HT-1013/1014 (#30)
-- [ ] KEEP → Repro → ship-queue (#17) — awaiting Repro
+- [ ] Honest dual-gate KEEP → Repro → ship-queue (#17) — **still waiting**
+  (HT-1015/1016 path after new HOLDOUT; fixture harden v2 digest `135edb5d…`)
 
-KEEP path: **#30 → #17** (not M2/#16). SEED HT-1007/1008 @ holdout_nrmse≈0.6162.
+**Ticket status (not product KEEP):**
+
+- **HT-1013: VOID** — oracle / `gen_fixtures.truth` coefficient clone; **not** product KEEP
+- **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only; **NOT** #17,
+  **NOT** product dual-gate KEEP, **NOT** `reference_twin` sync baseline
+- **`reference_twin`:** untouched / weights frozen until honest dual-gate KEEP + Repro
+
+KEEP path remains **#30 → #17** (not M2/#16). SEED HT-1007/1008 @ holdout_nrmse≈0.6162.
 See [SPEC.md](./SPEC.md).
