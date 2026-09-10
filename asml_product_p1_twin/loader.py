@@ -9,6 +9,11 @@ Env (first match wins):
   ASML_P1_TWIN_PATH  — path to a twin.py file, or a directory containing twin.py
   ASML_BENCH_ROOT    — asml-bench repo root; loads ``labs/p1-twin/twin.py``
 
+The resolved predictor is **cached** for the process. If ``ASML_BENCH_ROOT`` /
+``ASML_P1_TWIN_PATH`` change mid-process, call
+``get_predict_twin(force_reload=True)`` or ``reset_loader_cache()`` so the new
+path is picked up.
+
 Product researchers should ``from asml_product_p1_twin import simulate`` and never
 import the bench sandbox directly.
 """
@@ -59,6 +64,9 @@ def get_predict_twin(*, force_reload: bool = False) -> tuple[str, PredictFn]:
     """Return ``(source_label, predict_twin)``.
 
     ``source_label`` is ``"reference"`` or the resolved filesystem path string.
+
+    Pass ``force_reload=True`` after changing ``ASML_BENCH_ROOT`` /
+    ``ASML_P1_TWIN_PATH`` mid-process; otherwise the first resolution stays cached.
     """
     global _CACHED
     if _CACHED is not None and not force_reload:
