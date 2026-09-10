@@ -42,6 +42,6 @@ Unset → bundled `reference_twin` (**HT-1026 dual-KEEP**). Mid-process env chan
 
 - **HT-1013: VOID** — oracle / `gen_fixtures.truth` coefficient clone; **not** product KEEP
 - **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only; superseded by dual-KEEP
-- **HT-1015 ∧ HT-1025: DUAL-KEEP** — product sync baseline; `reference_twin` = HT-1026 physics
+- **HT-1026 ∧ HT-1027: DUAL-KEEP** — current product sync baseline; `reference_twin` = HT-1026 physics
 
 KEEP path **#30 → #17** complete for this ship. See [SPEC.md](./SPEC.md).

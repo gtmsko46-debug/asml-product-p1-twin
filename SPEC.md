@@ -83,7 +83,7 @@ Foreman owns lasercode-session routing. Do not call lasercode from this reposito
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | **done** |
 | M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | **merged** |
-| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | **HT-1015 ∧ HT-1025 dual-KEEP** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | **HT-1026 ∧ HT-1027 dual-KEEP** |
 | KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | **APPROVED** |
 
 KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) was dual SEED and is closed.
@@ -96,8 +96,8 @@ KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-
   **not** product KEEP.
 - **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only;
   superseded by dual-KEEP.
-- **dual-KEEP landed:** `reference_twin` = **HT-1026** (holdout 0.1489 /
-  trap 0.2707); dual proof **HT-1027** (0.1795/0.3076, IF=0.47 MIR=0.13);
+- **dual-KEEP landed:** `reference_twin` = **HT-1026** (holdout 0.1475 /
+  trap 0.2534); dual proof **HT-1027** (0.1795/0.3076, IF=0.47 MIR=0.13);
   Critic+Repro+#17+Diplomat **DUAL-KEEP**; Lab Director **#17 ship-queue
   APPROVED**.
 - HOLDOUT digest
