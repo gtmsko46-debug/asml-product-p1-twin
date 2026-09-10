@@ -1,3 +1,5 @@
+**SOFT (Critic):** HT-1027 dual proof is a thin IF_COUPLING-only retune vs HT-1025 (pred_diff PASS, not a comment fork). Explicit for promote hygiene.
+
 # SPEC — asml-product-p1-twin (M1 champion module)
 
 ## Champion job
@@ -39,7 +41,7 @@ Also: `predict_metrics(row) -> dict` — point estimates only.
 - Bench lab: `asml-bench/labs/p1-twin/`
 - **Harness may edit only** `labs/p1-twin/twin.py`
 - This product package is the **stable import surface**. Bundled
-  `reference_twin.py` = **HT-1015 dual-KEEP** physics so `pip install -e .`
+  `reference_twin.py` = **HT-1026 dual-KEEP** physics so `pip install -e .`
   needs zero bench checkout.
 - Live weights: set `ASML_BENCH_ROOT` (loads `labs/p1-twin/twin.py`) or
   `ASML_P1_TWIN_PATH` (path to a `twin.py`). Else → reference fallback.
@@ -94,8 +96,8 @@ KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-
   **not** product KEEP.
 - **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only;
   superseded by dual-KEEP.
-- **dual-KEEP landed:** `reference_twin` = **HT-1015** (holdout 0.1489 /
-  trap 0.2707); dual proof **HT-1025** (0.2467/0.3356, IF=0.47 MIR=0.13);
+- **dual-KEEP landed:** `reference_twin` = **HT-1026** (holdout 0.1489 /
+  trap 0.2707); dual proof **HT-1027** (0.1795/0.3076, IF=0.47 MIR=0.13);
   Critic+Repro+#17+Diplomat **DUAL-KEEP**; Lab Director **#17 ship-queue
   APPROVED**.
 - HOLDOUT digest
@@ -116,7 +118,7 @@ docs so pods can distinguish envelope from point estimate.
 ```
 asml_product_p1_twin/
   __init__.py          # simulate, TwinReport, ASSUMPTION_CARD, FEEDS_DEFAULT
-  reference_twin.py    # bundled HT-1015 dual-KEEP physics twin
+  reference_twin.py    # bundled HT-1026 dual-KEEP physics twin
   loader.py            # ASML_BENCH_ROOT / ASML_P1_TWIN_PATH → live twin.py
   simulate.py          # TwinReport + uncertainty wrapper
 ```

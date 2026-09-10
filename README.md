@@ -1,3 +1,5 @@
+**SOFT (Critic):** HT-1027 dual proof is a thin IF_COUPLING-only retune vs HT-1025 (pred_diff PASS, not a comment fork). Explicit for promote hygiene.
+
 # asml-product-p1-twin
 
 **P0 product.** FEL↔scanner digital twin that research islands actually import —
@@ -12,7 +14,7 @@ pip install -e .
 # or with tests: pip install -e '.[dev]'
 ```
 
-Zero bench checkout required. Bundled `reference_twin` = **HT-1015 dual-KEEP**
+Zero bench checkout required. Bundled `reference_twin` = **HT-1026 dual-KEEP**
 physics (HOLDOUT digest `2c398448…`). To pick up live hill-climbed weights:
 
 ```bash
@@ -93,8 +95,8 @@ KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-
 - SEED: HT-1007 / HT-1008 @ `holdout_nrmse ≈ 0.6162`
 - **HT-1013: VOID** — oracle / `gen_fixtures.truth` coefficient clone; **not** product KEEP
 - **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only; superseded
-- **dual-KEEP landed:** `reference_twin` = **HT-1015** (holdout 0.1489 / trap 0.2707);
-  dual proof **HT-1025** (0.2467/0.3356, IF=0.47 MIR=0.13);
+- **dual-KEEP landed:** `reference_twin` = **HT-1026** (holdout 0.1475 / trap 0.2534);
+  dual proof **HT-1027** (0.1795/0.3076, IF=0.47 MIR=0.13);
   Critic+Repro+#17+Diplomat **DUAL-KEEP**; Lab Director **#17 ship-queue APPROVED**
 - HOLDOUT digest `2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c`
 - Deepen **HT-1026 / HT-1027** drafted (next climb)
@@ -115,6 +117,6 @@ Research-facing demos require **dual-island**. Never invoke lasercode from this 
 - [x] M0 lab freeze (#14)
 - [x] M1 champion importable module (#15) — merged
 - [x] Honest dual-gate KEEP (#30) — HT-1015 ∧ HT-1025 dual-KEEP
-- [x] KEEP → Repro → ship-queue (#17) — APPROVED; `reference_twin` = HT-1015
+- [x] KEEP → Repro → ship-queue (#17) — APPROVED; `reference_twin` = HT-1026
 
 GO-LIVE. Hill-climbs only via Foreman stamped tickets.
