@@ -85,7 +85,7 @@ Uncertainty is a documented toy envelope (card confidence + metric floors) —
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | [x] done |
 | M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | [x] **merged** |
-| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | [x] **HT-1015 ∧ HT-1025 dual-KEEP** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | [x] **HT-1026 ∧ HT-1027 dual-KEEP** |
 | KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | [x] **APPROVED** (Lab Director) |
 
 KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) (dual SEED) is closed.
@@ -116,7 +116,7 @@ Research-facing demos require **dual-island**. Never invoke lasercode from this 
 
 - [x] M0 lab freeze (#14)
 - [x] M1 champion importable module (#15) — merged
-- [x] Honest dual-gate KEEP (#30) — HT-1015 ∧ HT-1025 dual-KEEP
+- [x] Honest dual-gate KEEP (#30) — HT-1026 ∧ HT-1027 dual-KEEP
 - [x] KEEP → Repro → ship-queue (#17) — APPROVED; `reference_twin` = HT-1026
 
 GO-LIVE. Hill-climbs only via Foreman stamped tickets.
