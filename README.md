@@ -1,5 +1,7 @@
 **SOFT (Critic):** HT-1027 dual proof is a thin IF_COUPLING-only retune vs HT-1025 (pred_diff PASS, not a comment fork). Explicit for promote hygiene.
 
+> **Champion FREEZE (2026-09-10):** no new hills / no new tickets. This README is the ship surface — polish docs only. See asml-bench `corpus/notes/champion-freeze-2026-09-10-product-ship.md`.
+
 # asml-product-p1-twin
 
 **P0 product.** FEL↔scanner digital twin that research islands actually import —
