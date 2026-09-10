@@ -12,8 +12,8 @@ pip install -e .
 # or with tests: pip install -e '.[dev]'
 ```
 
-Zero bench checkout required. Bundled `reference_twin` matches the asml-bench
-`labs/p1-twin/twin.py` SEED baseline. To pick up live hill-climbed weights:
+Zero bench checkout required. Bundled `reference_twin` = **HT-1015 dual-KEEP**
+physics (HOLDOUT digest `2c398448…`). To pick up live hill-climbed weights:
 
 ```bash
 export ASML_BENCH_ROOT=/path/to/asml-bench
@@ -83,8 +83,8 @@ Uncertainty is a documented toy envelope (card confidence + metric floors) —
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | [x] done |
 | M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | [x] **merged** |
-| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | [ ] HT-1013 VOID; need honest dual-gate |
-| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | [ ] **awaits honest dual-gate KEEP** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP path | [x] **HT-1015 ∧ HT-1025 dual-KEEP** |
+| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | [x] **APPROVED** (Lab Director) |
 
 KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) (dual SEED) is closed.
 
@@ -92,12 +92,12 @@ KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-
 
 - SEED: HT-1007 / HT-1008 @ `holdout_nrmse ≈ 0.6162`
 - **HT-1013: VOID** — oracle / `gen_fixtures.truth` coefficient clone; **not** product KEEP
-- **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only; **NOT** #17,
-  **NOT** product dual-gate KEEP, **NOT** `reference_twin` sync baseline
-- **#17 ship-queue** still waits honest dual-gate KEEP after new HOLDOUT
-  (HT-1015/1016 path; fixture harden v2 digest `2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c` (HT-1018 / asml-bench PR #34))
-- **`reference_twin`:** untouched / weights frozen until honest dual-gate KEEP + Repro
-  (not HT-1011/1012 — those are FEL-02)
+- **HT-1014: Repro PASS** @ `holdout_nrmse=0.2554` — island/Repro-only; superseded
+- **dual-KEEP landed:** `reference_twin` = **HT-1015** (holdout 0.1489 / trap 0.2707);
+  dual proof **HT-1025** (0.2467/0.3356, IF=0.47 MIR=0.13);
+  Critic+Repro+#17+Diplomat **DUAL-KEEP**; Lab Director **#17 ship-queue APPROVED**
+- HOLDOUT digest `2c398448a78b496b871794ad27d644d7a14b174426b538f1af7807f75bcc603c`
+- Deepen **HT-1026 / HT-1027** drafted (next climb)
 
 ## Provider / dual-island
 
@@ -114,8 +114,7 @@ Research-facing demos require **dual-island**. Never invoke lasercode from this 
 
 - [x] M0 lab freeze (#14)
 - [x] M1 champion importable module (#15) — merged
-- [ ] Honest dual-gate KEEP (#30) — HT-1013 VOID; HT-1015/1016 path after new HOLDOUT
-- [ ] KEEP → Repro → ship-queue (#17) — awaits honest dual-gate KEEP (not HT-1014)
+- [x] Honest dual-gate KEEP (#30) — HT-1015 ∧ HT-1025 dual-KEEP
+- [x] KEEP → Repro → ship-queue (#17) — APPROVED; `reference_twin` = HT-1015
 
 GO-LIVE. Hill-climbs only via Foreman stamped tickets.
-`reference_twin` weights frozen until dual-gate + Repro.
