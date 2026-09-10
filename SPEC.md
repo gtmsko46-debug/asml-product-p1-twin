@@ -43,6 +43,9 @@ Also: `predict_metrics(row) -> dict` — point estimates only.
   zero bench checkout.
 - Live weights: set `ASML_BENCH_ROOT` (loads `labs/p1-twin/twin.py`) or
   `ASML_P1_TWIN_PATH` (path to a `twin.py`). Else → reference fallback.
+- If `ASML_BENCH_ROOT` / `ASML_P1_TWIN_PATH` change **mid-process**, call
+  `get_predict_twin(force_reload=True)` (or `reset_loader_cache()`) — the
+  loader caches the first resolved predictor.
 - Never invoke lasercode from this PI. Hill-climbs go through Foreman stamps.
 
 ## Consumption map (feeds)
@@ -58,31 +61,38 @@ Default feeds consumed by the twin product:
 
 Override via `row["feeds"]` when a pod scopes a subset.
 
-## Dual-island demo requirement
+## Provider / dual-island
 
-Research-facing demos require **dual-island**:
+Research-facing demos require **dual-island**. Prefer the **`mock-mistral`**
+provider tag for the weak/scaffold lane (not `mistral/*` model IDs in run
+stamps).
 
-- STEM / twin solvers → `grok`
-- Docs / scaffolding → `mistral` / `mistral-large-latest` via **lasercode-session**
+| Lane | Provider tag | Notes |
+|------|--------------|-------|
+| STEM / twin solvers | `grok` | Primary climb island |
+| Docs / scaffold / weak island | `mock-mistral` | Champion lock stand-in model: `xai/grok-4.20-0309-non-reasoning` (Mistral-lane runs use this lock; do **not** stamp `mistral/*`) |
 
-(Do not call lasercode from this repository; Foreman owns session routing.)
+Foreman owns lasercode-session routing. Do not call lasercode from this repository.
 
 ## Factory milestones (asml-bench issues)
 
-| M | Issue | Stage | Status |
-|---|-------|-------|--------|
+| M / path | Issue | Stage | Status |
+|----------|-------|-------|--------|
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | **done** |
-| M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | **this PR** |
-| M2 | [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) | Dual SEED + KEEP climb | KEEP filed |
-| M3 | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | KEEP → Repro → ship-queue | pending |
+| M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | **merged** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP (HT-1013/1014) | candidate filed |
+| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | **awaiting Repro** |
+
+KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) was dual SEED and is closed.
 
 ## SEED / KEEP notes (Experimentalist)
 
 - **SEED landed:** HT-1007 (grok) + HT-1008 (mock-mistral) @
   `holdout_nrmse ≈ 0.6162` on the SEED baseline twin.
-- **KEEP climb in flight:** HT-1013 (grok) + HT-1014 (mock-mistral).
-  *(HT-1011/1012 are FEL-02 — not this product.)*
+- **Dual-gate KEEP candidate:** HT-1013 (grok) + HT-1014 (mock-mistral).
+  Product `reference_twin` stays on SEED coeffs until Repro clean-tree
+  confirms HT-1014. *(HT-1011/1012 are FEL-02 — not this product.)*
 
 ## Uncertainty model (synthetic)
 

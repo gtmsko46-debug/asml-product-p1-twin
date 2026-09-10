@@ -20,6 +20,15 @@ export ASML_BENCH_ROOT=/path/to/asml-bench
 # or: export ASML_P1_TWIN_PATH=/path/to/labs/p1-twin/twin.py
 ```
 
+If those env vars change **mid-process**, reload explicitly:
+
+```python
+from asml_product_p1_twin.loader import get_predict_twin, reset_loader_cache
+
+reset_loader_cache()
+# or: get_predict_twin(force_reload=True)
+```
+
 Harness edits **only** bench `twin.py`. This package is the stable import surface.
 
 ## Import (champion API)
@@ -69,32 +78,39 @@ Uncertainty is a documented toy envelope (card confidence + metric floors) —
 
 ## Factory milestones
 
-| M | Issue | Stage | Status |
-|---|-------|-------|--------|
+| M / path | Issue | Stage | Status |
+|----------|-------|-------|--------|
 | Parent | [#4](https://github.com/gtmsko46-debug/asml-bench/issues/4) | backlog P0 | GO-LIVE |
 | M0 | [#14](https://github.com/gtmsko46-debug/asml-bench/issues/14) | Lab freeze | [x] done |
-| M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | [x] **this PR** |
-| M2 | [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) | Dual SEED + KEEP climb | [ ] KEEP filed (HT-1013/1014) |
-| M3 | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | KEEP → Repro → ship-queue | [ ] pending |
+| M1 | [#15](https://github.com/gtmsko46-debug/asml-bench/issues/15) | Champion importable module | [x] **merged** |
+| KEEP climb | [#30](https://github.com/gtmsko46-debug/asml-bench/issues/30) | Dual-gate KEEP (HT-1013/1014) | [x] candidate |
+| KEEP → ship | [#17](https://github.com/gtmsko46-debug/asml-bench/issues/17) | Repro → Critic → ship-queue | [ ] **awaiting Repro** |
+
+KEEP path is **#30 → #17** (not M2/#16). M2 [#16](https://github.com/gtmsko46-debug/asml-bench/issues/16) (dual SEED) is closed.
 
 ### SEED / KEEP
 
 - SEED: HT-1007 / HT-1008 @ `holdout_nrmse ≈ 0.6162`
-- KEEP climb **in flight**: HT-1013 (grok) + HT-1014 (mock-mistral)
+- Dual-gate KEEP candidate: HT-1013 (grok) + HT-1014 (mock-mistral)
   — not HT-1011/1012 (those are FEL-02)
+- Bundled `reference_twin` remains SEED coeffs until Repro clean-tree confirms HT-1014
 
 ## Provider / dual-island
 
-- STEM / twin solvers → `grok`
-- Docs / scaffolding → `mistral` / `mistral-large-latest` via lasercode-session
-- Research-facing demos require **dual-island**
-- Never invoke lasercode from this PI; Foreman owns harness stamps
+Prefer the **`mock-mistral`** provider tag for the weak/scaffold lane.
+
+| Lane | Provider tag | Notes |
+|------|--------------|-------|
+| STEM / twin solvers | `grok` | Primary climb island |
+| Docs / scaffold / weak island | `mock-mistral` | Champion lock stand-in: `xai/grok-4.20-0309-non-reasoning` (do **not** stamp `mistral/*` for runs) |
+
+Research-facing demos require **dual-island**. Never invoke lasercode from this PI; Foreman owns harness stamps.
 
 ## Status
 
 - [x] M0 lab freeze (#14)
-- [x] M1 champion importable module (#15) — this package
-- [ ] M2 KEEP climb filed (HT-1013/1014) / dual SEED demo
-- [ ] M3 KEEP → Repro → ship-queue (#17)
+- [x] M1 champion importable module (#15) — merged
+- [x] Dual-gate KEEP candidate HT-1013/1014 (#30)
+- [ ] KEEP → Repro → ship-queue (#17) — awaiting Repro
 
 GO-LIVE. Hill-climbs only via Foreman stamped tickets.
